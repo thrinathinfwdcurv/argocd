@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: thrinathreddy234/argocd:1.2
+        image: thrinathreddy234/argocd:1.0
         ports:
         - containerPort: 8080
