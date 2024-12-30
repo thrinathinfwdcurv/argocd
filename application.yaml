@@ -6,13 +6,12 @@ metadata:
 spec:
   generators:
   - git:
-      repos:
-      - repoURL: https://github.com/thrinathinfwdcurv/argocd.git
-        revision: HEAD
-        path: demo
-      - repoURL: https://github.com/thrinathinfwdcurv/argocd1.git
-        revision: HEAD
-        path: demo
+    - repoURL: https://github.com/thrinathinfwdcurv/argocd.git
+      revision: HEAD
+      path: demo
+    - repoURL: https://github.com/thrinathinfwdcurv/argocd1.git
+      revision: HEAD
+      path: demo
   template:
     metadata:
       name: "{{path}}-app"
