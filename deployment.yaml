@@ -1,21 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: my-application
+  labels:
+    app: my-application
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: myapp
-      annotations:
-        argocd.argoproj.io/sync-wave: "0"
-  replicas: 1
+      app: my-application
   template:
     metadata:
       labels:
-        app: myapp
+        app: my-application
     spec:
       containers:
-      - name: myapp
-        image: thrinathreddy234/argocd:1.0
-        ports:
-        - containerPort: 8080
+        - name: my-application-container
+          image: thrinathreddy234/argocd:1.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MY_ENV_VAR
+              value: "my-value"
