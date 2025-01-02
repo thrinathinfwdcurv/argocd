@@ -1,20 +1,20 @@
-# Use a base image. Example: Python
-FROM python:3.10-slim
+# Use an official base image (e.g., Python, Node.js, etc.)
+FROM python:3.9-slim
 
-# Set the working directory in the container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy requirements.txt first to leverage Docker layer caching
-COPY requirements.txt /app/requirements.txt
+# Copy the requirements file (if applicable)
+COPY requirements.txt /app/
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code
-COPY . /app
+# Copy the application files into the container
+COPY . /app/
 
-# Expose the application port
-EXPOSE 8000
+# Expose the port your app will run on (change as per your app's requirements)
+EXPOSE 8080
 
-# Define the command to run your server
+# Command to run the application
 CMD ["python", "app.py"]
